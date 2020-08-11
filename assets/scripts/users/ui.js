@@ -1,4 +1,4 @@
-const store = require('./store')
+const store = require('../store')
 
 const signUpSuccess = function () {
   $('#message').text('You have signed up successfully!')
