@@ -1,8 +1,8 @@
 const config = require('../config')
 const store = require('../store')
-const showadvBookTemplate = require('../templates/advBook.handlebars')
+const showAdvBookTemplate = require('../templates/advBook.handlebars')
 
-const advBookId = showadvBookTemplate.book
+const advBookId = showAdvBookTemplate.book
 
 const getBooks = function (data) {
   return $.ajax({

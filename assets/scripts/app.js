@@ -5,7 +5,11 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+<<<<<<< HEAD
 const events = require('./users/events')
+=======
+const events = require('./advBooks/events')
+>>>>>>> development
 
 $(() => {
   $('#sign-up').on('submit', events.onSignUp)
