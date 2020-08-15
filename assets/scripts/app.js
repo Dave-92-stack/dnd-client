@@ -12,5 +12,6 @@ $(() => {
   $('#sign-in').on('submit', events.onSignIn)
   $('#change-password').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
+  $('#authenticatedRoute').hide()
   // your JS code goes here
 })
