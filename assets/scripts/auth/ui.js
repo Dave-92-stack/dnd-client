@@ -9,6 +9,7 @@ const signUpSuccess = function () {
 
 const signUpFailure = function () {
   $('#message').text('Failed to sign up!')
+  $('form').trigger('reset')
 }
 
 const signInSuccess = function (response) {
@@ -21,6 +22,7 @@ const signInSuccess = function (response) {
 
 const signInFailure = function () {
   $('#message').text('Failed to sign in!')
+  $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
@@ -33,6 +35,7 @@ const signOutSuccess = function () {
 
 const signOutFailure = function () {
   $('#message').text('Failed to sign out.')
+  $('form').trigger('reset')
 }
 
 const changePasswordSuccess = function () {
@@ -42,6 +45,7 @@ const changePasswordSuccess = function () {
 
 const changePasswordFailure = function () {
   $('#message').text('Failed to change password')
+  $('form').trigger('reset')
 }
 
 module.exports = {
