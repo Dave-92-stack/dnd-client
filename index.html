@@ -11,11 +11,14 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
+
       <h1>Browser Template</h1>
-      <div id="unauthenticatedRoute">
       <p id="message"></p>
+
+      <div id="unauthenticatedRoute">
       <form id="sign-up">
   <input class= "mx-2" name="credentials[email]" placeholder="email" type="text">
   <input class= "mx-2" name="credentials[password]" placeholder="password" type="password">
@@ -29,6 +32,7 @@
   <button class="btn btn-success" type="submit">Sign In!</button>
 </form>
 </div>
+
 <div id="authenticatedRoute">
 <form id="change-password">
       <input name="passwords[old]"
@@ -37,6 +41,7 @@
       placeholder="new password" type="password">
       <button class="btn btn-info" type="submit">Change Password</button>
     </form>
+
     <form id="sign-out">
          <button class="btn btn-danger" type="submit">Sign Out</button>
          </form>

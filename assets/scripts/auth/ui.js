@@ -1,3 +1,5 @@
+'use strict'
+
 const store = require('../store')
 
 const signUpSuccess = function () {
@@ -7,7 +9,6 @@ const signUpSuccess = function () {
 
 const signUpFailure = function () {
   $('#message').text('Failed to sign up!')
-  $('form').trigger('reset')
 }
 
 const signInSuccess = function (response) {
@@ -20,12 +21,6 @@ const signInSuccess = function (response) {
 
 const signInFailure = function () {
   $('#message').text('Failed to sign in!')
-  $('form').trigger('reset')
-}
-
-const signOutFailure = function () {
-  $('#message').text('Failed to sign out.')
-  $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
@@ -36,6 +31,10 @@ const signOutSuccess = function () {
   delete store.user
 }
 
+const signOutFailure = function () {
+  $('#message').text('Failed to sign out.')
+}
+
 const changePasswordSuccess = function () {
   $('#message').text('You have successfully changed your password!')
   $('form').trigger('reset')
@@ -43,7 +42,6 @@ const changePasswordSuccess = function () {
 
 const changePasswordFailure = function () {
   $('#message').text('Failed to change password')
-  $('form').trigger('reset')
 }
 
 module.exports = {
