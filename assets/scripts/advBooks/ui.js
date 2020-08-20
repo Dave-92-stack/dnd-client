@@ -40,10 +40,6 @@ const updateAdvBookFailure = () => {
   $('#message').text('Failed to update adventure!')
 }
 
-const failure = (error) => {
-  console.error(error)
-}
-
 module.exports = {
   showAdvBooksSuccess,
   showAdvBooksFailure,
@@ -52,6 +48,5 @@ module.exports = {
   destroyAdvBookSuccess,
   destroyAdvBookFailure,
   updateAdvBookSuccess,
-  updateAdvBookFailure,
-  failure
+  updateAdvBookFailure
 }
