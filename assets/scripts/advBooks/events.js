@@ -30,11 +30,16 @@ const onDestroyAdvBook = function (event) {
 
 const onUpdateAdvBook = function (event) {
   event.preventDefault()
-  const advBookId = $(event.target).data('id')
+
   const form = event.target
+  const advBookId = $(form).data('id')
   const formData = getFormFields(form)
+
   api.updateAdvBook(advBookId, formData)
     .then(ui.updateAdvBookSuccess)
+    .then(function () {
+      onShowAdvBooks(event)
+    })
     .catch(ui.updateAdvBookFailure)
 }
 
