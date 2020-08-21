@@ -43,7 +43,8 @@ const destroyAdvBook = function (advBookId) {
       Authorization: 'Bearer ' + store.user.token
     },
     url: config.apiUrl + '/advBooks/' + advBookId,
-    method: 'DELETE'
+    method: 'DELETE',
+    user: store.user
   })
 }
 

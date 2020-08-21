@@ -4,11 +4,13 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const onCreateAdvBook = function (event) {
   event.preventDefault()
-
   const form = event.target
   const formData = getFormFields(form)
   api.createAdvBook(formData)
     .then(ui.createAdvBookSuccess)
+    .then(function () {
+      onShowAdvBooks(event)
+    })
     .catch(ui.createAdvBookFailure)
 }
 
@@ -23,9 +25,9 @@ const onDestroyAdvBook = (event) => {
   event.preventDefault()
   const advBookId = $(event.target).data('id')
   api.destroyAdvBook(advBookId)
-    .then(() => {
-      api.onShowAdvBooks()
-        .then(ui.destroyAdvBookSuccess)
+    .then(ui.destroyAdvBookSuccess)
+    .then(function () {
+      onShowAdvBooks(event)
     })
     .catch(ui.destroyAdvBookFailure)
 }
