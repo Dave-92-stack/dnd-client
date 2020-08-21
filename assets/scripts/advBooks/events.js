@@ -19,15 +19,14 @@ const onShowAdvBooks = function (event) {
     .catch(ui.showAdvBooksFailure)
 }
 
-const onDestroyAdvBook = function (event) {
+const onDestroyAdvBook = (event) => {
   event.preventDefault()
-  const advBookId = $(event.target).data('id')
+  console.log('click delete')
+  const advBookId = $(event.target).closest('section').data('id')
   api.destroyAdvBook(advBookId)
-    .then(ui.destroyAdvBookSuccess)
-    .catch(ui.destroyAdvBookFailure)
-    .then(response => console.log(response))
-    .catch(ui.destroyAdvBookFailure)
     .then(() => onShowAdvBooks(event))
+    .catch(ui.destroyAdvBookFailure)
+    .catch(ui.destroyAdvBookFailure)
 }
 
 const onUpdateAdvBook = function (event) {

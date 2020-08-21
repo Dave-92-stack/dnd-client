@@ -1,10 +1,11 @@
 const showAdvBooksTemplate = require('../templates/advBooks.handlebars')
+const advBookEvents = require('./events')
 
 const showAdvBooksSuccess = (data) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
-  console.log('data is', data)
   $('.content').html(showAdvBooksHtml)
-  $('body').removeAttr('class')
+  $('.destroyAdvBook').on('click', advBookEvents.onDestroyAdvBook)
+  // $('body').removeAttr('class')
   $('#message').text('Your adventure logs.')
 }
 

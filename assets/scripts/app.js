@@ -12,6 +12,6 @@ $(() => {
 
   $('#createAdvBook').on('submit', advBookEvents.onCreateAdvBook)
   $('#showAdvBook').on('submit', advBookEvents.onShowAdvBooks)
-  $('#destroyAdvBook').on('submit', advBookEvents.onDestroyAdvBook)
+  $('.destroyAdvBook').on('click', advBookEvents.onDestroyAdvBook)
   $('#updateAdvbook').on('submit', advBookEvents.onUpdateAdvBook)
 })
