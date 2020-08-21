@@ -23,9 +23,11 @@ const onDestroyAdvBook = function (event) {
   event.preventDefault()
   const advBookId = $(event.target).data('id')
   api.destroyAdvBook(advBookId)
-    .then(() => onShowAdvBooks(event))
     .then(ui.destroyAdvBookSuccess)
     .catch(ui.destroyAdvBookFailure)
+    .then(response => console.log(response))
+    .catch(ui.destroyAdvBookFailure)
+    .then(() => onShowAdvBooks(event))
 }
 
 const onUpdateAdvBook = function (event) {
