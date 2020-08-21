@@ -1,4 +1,4 @@
-curl "https://serene-sea-61439.herokuapp.com/sign-up" \
+curl "http://localhost:4741/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

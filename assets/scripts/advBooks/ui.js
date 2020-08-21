@@ -1,57 +1,54 @@
-const config = require('../config')
-const store = require('../store')
-const showAdvBookTemplate = require('../templates/advBook.handlebars')
+const showAdvBooksTemplate = require('../templates/advBooks.handlebars')
+const advBookEvents = require('./events')
 
-const advBookId = showAdvBookTemplate.book
-
-const getBooks = function (data) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    url: config.apiUrl + '/books',
-    method: 'GET',
-    data: {
-      user: store.user.id
-    }
-  })
+const showAdvBooksSuccess = (data) => {
+  const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
+  $('.content').html(showAdvBooksHtml)
+  $('.destroyAdvBook').on('click', advBookEvents.onDestroyAdvBook)
+  // $('body').removeAttr('class')
+  $('#message').text('Your adventure logs.')
 }
 
-const createBook = function (formData) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    url: config.apiUrl + '/books',
-    method: 'POST',
-    data: formData
-  })
+const showAdvBooksFailure = (data) => {
+  $('#message').text('Failed to show adventures')
 }
 
-const deleteBook = function (advBookId) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    url: config.apiUrl + '/books/' + advBookId,
-    method: 'DELETE'
-  })
+const createAdvBookSuccess = (data) => {
+  const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
+  $('.content').text(showAdvBooksHtml)
+  $('#message').text('Adventure logged successfully!')
+  $('form').trigger('reset')
 }
 
-const updateBook = function (advBookId, formData) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    url: config.apiUrl + '/books/' + advBookId,
-    method: 'PATCH',
-    data: formData
-  })
+const createAdvBookFailure = (data) => {
+  $('#message').text('Failed to store your new adventure')
+}
+
+const destroyAdvBookSuccess = (id) => {
+  $(`[data-id='${id}']`).remove()
+  $('#message').text('You deleted an adventure')
+}
+
+const destroyAdvBookFailure = (id) => {
+  $('#message').text('Failed to delete adventure')
+}
+
+const updateAdvBookSuccess = (id) => {
+  $('#message').text('Updated adventure successfully!')
+  $('form').trigger('reset')
+}
+
+const updateAdvBookFailure = () => {
+  $('#message').text('Failed to update adventure!')
 }
 
 module.exports = {
-  getBooks,
-  createBook,
-  deleteBook,
-  updateBook
+  showAdvBooksSuccess,
+  showAdvBooksFailure,
+  createAdvBookSuccess,
+  createAdvBookFailure,
+  destroyAdvBookSuccess,
+  destroyAdvBookFailure,
+  updateAdvBookSuccess,
+  updateAdvBookFailure
 }

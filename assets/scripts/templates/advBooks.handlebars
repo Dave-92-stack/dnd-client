@@ -1,0 +1,21 @@
+{{#each advBooks as |advBook|}}
+{{log advBook}}
+<section data-id="{{advBook.id}}">
+  <h6>Title:</h6>
+  <h4>
+    {{advBook.title}}
+  </h4>
+  <h6>Edition:</h6>
+  <h4>
+  {{advBook.edition}}
+  </h4>
+  <h6>Description</h6>
+  <p>
+    {{advBook.description}}
+  </p>
+  <form id="destroyAdvBook">
+       <button data-id="{{advBook._id}}" class="btn btn-danger destroyAdvBook" type="button">Delete Adventure</button>
+       </form>
+</section>
+
+{{/each}}

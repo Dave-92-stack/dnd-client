@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>D & D Adventures</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,10 +11,14 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+      <h1>Dungeon Master's Adventure Log</h1>
       <p id="message"></p>
+
+      <div id="unauthenticatedRoute">
       <form id="sign-up">
   <input class= "mx-2" name="credentials[email]" placeholder="email" type="text">
   <input class= "mx-2" name="credentials[password]" placeholder="password" type="password">
@@ -27,7 +31,9 @@
   <input class="mx-2" name="credentials[password]" placeholder="password" type="password">
   <button class="btn btn-success" type="submit">Sign In!</button>
 </form>
+</div>
 
+<div id="authenticatedRoute">
 <form id="change-password">
       <input name="passwords[old]"
       placeholder="old password" type="password">
@@ -35,8 +41,25 @@
       placeholder="new password" type="password">
       <button class="btn btn-info" type="submit">Change Password</button>
     </form>
+
     <form id="sign-out">
          <button class="btn btn-danger" type="submit">Sign Out</button>
          </form>
+    <form id="createAdvBook" class="form">
+      <input name="advBook[title]" type="text" placeholder="title">
+      <input name="advBook[edition]" type="number" placeholder="What numerical edition is the adventure?">
+      <input name="advBook[description]" type="text" placeholder="Adventure description">
+    <button class="btn btn-info" type="submit">Create Adventure Log</button>
+  </form>
+  <form id="updateAdvBook">
+    <button class="btn btn-info" type="submit">Update Adventure Log</button>
+  </form>
+  <form id="showAdvBook">
+    <button class="btn btn-info" type="submit">Show Adventure Logs</button>
+  </form>
+  <main>
+    <div id="content" class="content"></div>
+  </main>
+       </div>
     </body>
 </html>

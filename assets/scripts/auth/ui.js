@@ -1,3 +1,8 @@
+<<<<<<< HEAD:assets/scripts/auth/ui.js
+'use strict'
+
+=======
+>>>>>>> master:assets/scripts/users/ui.js
 const store = require('../store')
 
 const signUpSuccess = function () {
@@ -11,6 +16,8 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
+  $('#authenticatedRoute').show()
+  $('#unauthenticatedRoute').hide()
   $('#message').text('You have successfully signed in!')
   $('form').trigger('reset')
   store.user = response.user
@@ -21,15 +28,17 @@ const signInFailure = function () {
   $('form').trigger('reset')
 }
 
-const signOutFailure = function () {
-  $('#message').text('Failed to sign out.')
-  $('form').trigger('reset')
-}
-
 const signOutSuccess = function () {
   $('#message').text('Successfully signed out.')
   $('form').trigger('reset')
+  $('#unauthenticatedRoute').show()
+  $('#authenticatedRoute').hide()
   delete store.user
+}
+
+const signOutFailure = function () {
+  $('#message').text('Failed to sign out.')
+  $('form').trigger('reset')
 }
 
 const changePasswordSuccess = function () {
