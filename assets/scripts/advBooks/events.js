@@ -30,10 +30,6 @@ const onDestroyAdvBook = (event) => {
     .catch(ui.destroyAdvBookFailure)
 }
 
-const addHandler = () => {
-  $('.content').on('submit', '.destroyAdvBook', onDestroyAdvBook)
-}
-
 const onUpdateAdvBook = function (event) {
   event.preventDefault()
 
@@ -53,6 +49,5 @@ module.exports = {
   onCreateAdvBook,
   onShowAdvBooks,
   onDestroyAdvBook,
-  onUpdateAdvBook,
-  addHandler
+  onUpdateAdvBook
 }

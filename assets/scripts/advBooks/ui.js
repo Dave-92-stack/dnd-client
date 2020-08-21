@@ -3,7 +3,7 @@ const advBookEvents = require('./events')
 
 const showAdvBooksSuccess = (data) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
-  $('.content').html(showAdvBooksHtml)
+  $('#content').html(showAdvBooksHtml)
   $('.destroyAdvBook').on('click', advBookEvents.onDestroyAdvBook)
   // $('body').removeAttr('class')
   $('#message').text('Your adventure logs.')
@@ -15,7 +15,7 @@ const showAdvBooksFailure = (data) => {
 
 const createAdvBookSuccess = (data) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
-  $('.content').text(showAdvBooksHtml)
+  $('#content').text(showAdvBooksHtml)
   $('#message').text('Adventure logged successfully!')
   $('form').trigger('reset')
 }
