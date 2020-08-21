@@ -1,16 +1,12 @@
 'use strict'
 
-<<<<<<< HEAD
 const authEvents = require('./auth/events')
 const advBookEvents = require('./advBooks/events')
-=======
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-const events = require('./users/events')
->>>>>>> master
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -23,5 +19,5 @@ $(() => {
   $('#showAdvBook').on('submit', advBookEvents.onShowAdvBooks)
   $('.destroyAdvBook').on('click', advBookEvents.onDestroyAdvBook)
   $('#updateAdvbook').on('submit', advBookEvents.onUpdateAdvBook)
-  $('.content').on('submit', '.destroyAdvBook', advBookEvents.onDestroyAdvBook)
+  advBookEvents.addHandler()
 })

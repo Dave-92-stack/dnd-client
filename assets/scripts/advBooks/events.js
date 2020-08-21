@@ -21,12 +21,17 @@ const onShowAdvBooks = function (event) {
 
 const onDestroyAdvBook = (event) => {
   event.preventDefault()
-  console.log('click delete')
-  const advBookId = $(event.target).closest('section').data('id')
+  const advBookId = $(event.target).data('id')
   api.destroyAdvBook(advBookId)
-    .then(() => onShowAdvBooks(event))
+    .then(() => {
+      api.onShowAdvBooks()
+        .then(ui.destroyAdvBookSuccess)
+    })
     .catch(ui.destroyAdvBookFailure)
-    .catch(ui.destroyAdvBookFailure)
+}
+
+const addHandler = () => {
+  $('.content').on('submit', '.destroyAdvBook', onDestroyAdvBook)
 }
 
 const onUpdateAdvBook = function (event) {
@@ -48,5 +53,6 @@ module.exports = {
   onCreateAdvBook,
   onShowAdvBooks,
   onDestroyAdvBook,
-  onUpdateAdvBook
+  onUpdateAdvBook,
+  addHandler
 }
