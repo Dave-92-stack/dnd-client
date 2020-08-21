@@ -1,5 +1,8 @@
+<<<<<<< HEAD:assets/scripts/auth/ui.js
 'use strict'
 
+=======
+>>>>>>> master:assets/scripts/users/ui.js
 const store = require('../store')
 
 const signUpSuccess = function () {
