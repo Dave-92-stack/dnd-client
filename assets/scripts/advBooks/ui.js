@@ -2,6 +2,7 @@ const showAdvBooksTemplate = require('../templates/advBooks.handlebars')
 
 const showAdvBooksSuccess = (data) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
+  console.log('data is', data)
   $('.content').html(showAdvBooksHtml)
   $('body').removeAttr('class')
   $('#message').text('Your adventure logs.')
