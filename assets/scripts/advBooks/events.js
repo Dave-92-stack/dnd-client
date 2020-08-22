@@ -14,7 +14,7 @@ const onCreateAdvBook = function (event) {
     .catch(ui.createAdvBookFailure)
 }
 
-const onShowAdvBooks = function (event) {
+const onShowAdvBooks = (event) => {
   event.preventDefault()
   api.showAdvBooks()
     .then(ui.showAdvBooksSuccess)
