@@ -8,9 +8,7 @@ const onCreateAdvBook = function (event) {
   const formData = getFormFields(form)
   api.createAdvBook(formData)
     .then(ui.createAdvBookSuccess)
-    .then(function () {
-      onShowAdvBooks(event)
-    })
+    .then(onShowAdvBooks(event))
     .catch(ui.createAdvBookFailure)
 }
 
@@ -32,24 +30,24 @@ const onDestroyAdvBook = (event) => {
     .catch(ui.destroyAdvBookFailure)
 }
 
-const onUpdateAdvBook = function (event) {
-  event.preventDefault()
-
-  const form = event.target
-  const advBookId = $(form).data('id')
-  const formData = getFormFields(form)
-
-  api.updateAdvBook(advBookId, formData)
-    .then(ui.updateAdvBookSuccess)
-    .then(function () {
-      onShowAdvBooks(event)
-    })
-    .catch(ui.updateAdvBookFailure)
-}
+// const onUpdateAdvBook = function (event) {
+//   event.preventDefault()
+//
+//   const form = event.target
+//   const advBookId = $(form).data('id')
+//   const formData = getFormFields(form)
+//
+//   api.updateAdvBook(advBookId, formData)
+//     .then(ui.updateAdvBookSuccess)
+//     .then(function () {
+//       onShowAdvBooks(event)
+//     })
+//     .catch(ui.updateAdvBookFailure)
+// }
 
 module.exports = {
   onCreateAdvBook,
   onShowAdvBooks,
-  onDestroyAdvBook,
-  onUpdateAdvBook
+  onDestroyAdvBook
+  // onUpdateAdvBook
 }

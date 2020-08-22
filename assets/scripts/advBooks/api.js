@@ -26,16 +26,16 @@ const showAdvBooks = function () {
   })
 }
 
-const updateAdvBook = function (advBookId, formData) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    url: config.apiUrl + '/advBooks' + advBookId,
-    method: 'PATCH',
-    data: formData
-  })
-}
+// const updateAdvBook = function (advBookId, formData) {
+//   return $.ajax({
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     },
+//     url: config.apiUrl + '/advBooks' + advBookId,
+//     method: 'PATCH',
+//     data: formData
+//   })
+// }
 
 const destroyAdvBook = function (advBookId) {
   return $.ajax({
@@ -51,6 +51,6 @@ const destroyAdvBook = function (advBookId) {
 module.exports = {
   createAdvBook,
   showAdvBooks,
-  destroyAdvBook,
-  updateAdvBook
+  destroyAdvBook
+  // updateAdvBook
 }

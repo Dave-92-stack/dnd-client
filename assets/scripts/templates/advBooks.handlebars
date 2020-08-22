@@ -13,7 +13,8 @@
   <p>
     {{advBook.description}}
   </p>
-       <button type="click" class="destroyAdvBook btn btn-danger" data-id="{{advBook._id}}">Delete Adventure</button>
+  <button data-id="{{advBook._id}}" data-target="#editModal" data-toggle="modal" class="btn-sm btn-info edit-advBook">Edit</button>
+       <button type="click" class="destroyAdvBook btn-sm btn-danger" data-id="{{advBook._id}}">Delete Adventure</button>
 </section>
 
 {{/each}}

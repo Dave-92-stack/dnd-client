@@ -37,14 +37,14 @@ const destroyAdvBookFailure = (id) => {
   $('#message').text('Failed to delete adventure')
 }
 
-const updateAdvBookSuccess = (id) => {
-  $('#message').text('Updated adventure successfully!')
-  $('form').trigger('reset')
-}
-
-const updateAdvBookFailure = () => {
-  $('#message').text('Failed to update adventure!')
-}
+// const updateAdvBookSuccess = (id) => {
+//   $('#message').text('Updated adventure successfully!')
+//   $('form').trigger('reset')
+// }
+//
+// const updateAdvBookFailure = () => {
+//   $('#message').text('Failed to update adventure!')
+// }
 
 module.exports = {
   showAdvBooksSuccess,
@@ -52,7 +52,7 @@ module.exports = {
   createAdvBookSuccess,
   createAdvBookFailure,
   destroyAdvBookSuccess,
-  destroyAdvBookFailure,
-  updateAdvBookSuccess,
-  updateAdvBookFailure
+  destroyAdvBookFailure
+  // updateAdvBookSuccess,
+  // updateAdvBookFailure
 }
