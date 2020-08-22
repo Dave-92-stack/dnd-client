@@ -30,24 +30,21 @@ const onDestroyAdvBook = (event) => {
     .catch(ui.destroyAdvBookFailure)
 }
 
-// const onUpdateAdvBook = function (event) {
-//   event.preventDefault()
-//
-//   const form = event.target
-//   const advBookId = $(form).data('id')
-//   const formData = getFormFields(form)
-//
-//   api.updateAdvBook(advBookId, formData)
-//     .then(ui.updateAdvBookSuccess)
-//     .then(function () {
-//       onShowAdvBooks(event)
-//     })
-//     .catch(ui.updateAdvBookFailure)
-// }
+const onAdvBookEdit = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.editAdvBook(formData)
+    .then(() => {
+      api.showAdvBooks()
+        .then(ui.editAdvBookSuccess)
+    })
+    .catch(ui.editAdvBookFailure)
+}
 
 module.exports = {
   onCreateAdvBook,
   onShowAdvBooks,
-  onDestroyAdvBook
-  // onUpdateAdvBook
+  onDestroyAdvBook,
+  onAdvBookEdit
 }
