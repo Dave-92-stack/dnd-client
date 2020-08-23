@@ -26,17 +26,6 @@ const showAdvBooks = function () {
   })
 }
 
-// const updateAdvBook = function (advBookId, formData) {
-//   return $.ajax({
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     url: config.apiUrl + '/advBooks' + advBookId,
-//     method: 'PATCH',
-//     data: formData
-//   })
-// }
-
 const destroyAdvBook = function (advBookId) {
   return $.ajax({
     headers: {

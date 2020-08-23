@@ -5,9 +5,13 @@ const showAdvBooksSuccess = (data) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
   $('.content').html(showAdvBooksHtml)
   $('.destroyAdvBook').each(function (i, obj) {
-    obj.on('click', advBookEvents.onDestroyAdvBook)
+    obj.on('submit', advBookEvents.onDestroyAdvBook)
+  })
+  $('#editModal').each(function (i, obj) {
+    obj.on('submit', advBookEvents.onAdvBookEdit)
   })
   $('#message').text('Your adventure logs.')
+  $('form').trigger('reset')
 }
 
 const showAdvBooksFailure = (data) => {
@@ -19,6 +23,9 @@ const createAdvBookSuccess = (data) => {
   $('.content').text(showAdvBooksHtml)
   $('.destroyAdvBook').each(function (i, obj) {
     obj.on('submit', advBookEvents.onDestroyAdvBook)
+  })
+  $('.editModal').each(function (i, obj) {
+    obj.on('submit', advBookEvents.onAdvBookEdit)
   })
   $('#message').text('Adventure logged successfully!')
   $('form').trigger('reset')
@@ -39,7 +46,7 @@ const destroyAdvBookFailure = (id) => {
 
 const editAdvBookSuccess = (response) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: response.advBooks })
-  $('#content').html(showAdvBooksHtml)
+  $('.content').html(showAdvBooksHtml)
   $('#message').text('Successfully edited your adventure')
   $('#editModal').modal('hide')
 }

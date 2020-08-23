@@ -14,7 +14,9 @@ const onCreateAdvBook = function (event) {
 
 const onShowAdvBooks = (event) => {
   event.preventDefault()
-  api.showAdvBooks()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.showAdvBooks(formData)
     .then(ui.showAdvBooksSuccess)
     .catch(ui.showAdvBooksFailure)
 }
@@ -35,9 +37,9 @@ const onAdvBookEdit = (event) => {
   const form = event.target
   const formData = getFormFields(form)
   api.editAdvBook(formData)
-    .then(() => {
+    .then(ui.editAdvBookSuccess)
+    .then(function () {
       api.showAdvBooks()
-        .then(ui.editAdvBookSuccess)
     })
     .catch(ui.editAdvBookFailure)
 }
