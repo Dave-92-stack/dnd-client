@@ -1,5 +1,6 @@
 const showAdvBooksTemplate = require('../templates/advBooks.handlebars')
 const advBookEvents = require('./events')
+const api = require('./api')
 
 const showAdvBooksSuccess = (data) => {
   const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: data.advBooks })
@@ -45,12 +46,12 @@ const destroyAdvBookFailure = (id) => {
 }
 
 const editAdvBookSuccess = (response) => {
-  const showAdvBooksHtml = showAdvBooksTemplate({ advBooks: response.advBooks })
-  $('.content').html(showAdvBooksHtml)
   $('#message').text('Successfully edited your adventure')
   $('#editModal').modal('hide')
+  api.showAdvBook()
+    .then(showAdvBooksSuccess)
+    .catch(showAdvBooksFailure)
 }
-
 const editAdvBookFailure = (response) => {
   ('#message').text('Failed to edit adventure, are you sure it is yours?')
   $('#editModal').modal('hide')

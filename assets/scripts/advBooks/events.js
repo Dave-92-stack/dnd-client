@@ -34,13 +34,11 @@ const onDestroyAdvBook = (event) => {
 
 const onAdvBookEdit = (event) => {
   event.preventDefault()
+  const advBookId = $(event.target).data('id')
   const form = event.target
   const formData = getFormFields(form)
-  api.editAdvBook(formData)
+  api.editAdvBook(formData, advBookId)
     .then(ui.editAdvBookSuccess)
-    .then(function () {
-      api.showAdvBooks()
-    })
     .catch(ui.editAdvBookFailure)
 }
 

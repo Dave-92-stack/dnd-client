@@ -37,20 +37,16 @@ const destroyAdvBook = function (advBookId) {
   })
 }
 
-const editAdvBook = (formData) => {
-  const advBook = {
-    article: formData
-  }
+const editAdvBook = (formData, advBookId) => {
   return $.ajax({
+    url: config.apiUrl + '/advBooks/' + advBookId,
     headers: {
-      Authroization: 'Bearer' + store.user.token
+      Authorization: 'Bearer ' + store.user.token
     },
-    url: config.apiUrl + '/advbooks/' + formData._id,
     method: 'PATCH',
-    data: advBook
+    data: formData
   })
 }
-
 module.exports = {
   createAdvBook,
   showAdvBooks,
