@@ -4,49 +4,47 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const onCreateAdvBook = function (event) {
   event.preventDefault()
-
   const form = event.target
   const formData = getFormFields(form)
   api.createAdvBook(formData)
     .then(ui.createAdvBookSuccess)
+    .then(onShowAdvBooks(event))
     .catch(ui.createAdvBookFailure)
 }
 
-const onShowAdvBooks = function (event) {
+const onShowAdvBooks = (event) => {
   event.preventDefault()
-  api.showAdvBooks()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.showAdvBooks(formData)
     .then(ui.showAdvBooksSuccess)
     .catch(ui.showAdvBooksFailure)
 }
 
 const onDestroyAdvBook = (event) => {
   event.preventDefault()
-  console.log('click delete')
-  const advBookId = $(event.target).closest('section').data('id')
+  const advBookId = $(event.target).data('id')
   api.destroyAdvBook(advBookId)
-    .then(() => onShowAdvBooks(event))
-    .catch(ui.destroyAdvBookFailure)
-    .catch(ui.destroyAdvBookFailure)
-}
-
-const onUpdateAdvBook = function (event) {
-  event.preventDefault()
-
-  const form = event.target
-  const advBookId = $(form).data('id')
-  const formData = getFormFields(form)
-
-  api.updateAdvBook(advBookId, formData)
-    .then(ui.updateAdvBookSuccess)
+    .then(ui.destroyAdvBookSuccess)
     .then(function () {
       onShowAdvBooks(event)
     })
-    .catch(ui.updateAdvBookFailure)
+    .catch(ui.destroyAdvBookFailure)
+}
+
+const onAdvBookEdit = (event) => {
+  event.preventDefault()
+  const advBookId = $(event.target).data('id')
+  const form = event.target
+  const formData = getFormFields(form)
+  api.editAdvBook(formData, advBookId)
+    .then(ui.editAdvBookSuccess)
+    .catch(ui.editAdvBookFailure)
 }
 
 module.exports = {
   onCreateAdvBook,
   onShowAdvBooks,
   onDestroyAdvBook,
-  onUpdateAdvBook
+  onAdvBookEdit
 }

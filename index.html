@@ -51,14 +51,58 @@
       <input name="advBook[description]" type="text" placeholder="Adventure description">
     <button class="btn btn-info" type="submit">Create Adventure Log</button>
   </form>
-  <form id="updateAdvBook">
+  <!-- <form id="updateAdvBook">
     <button class="btn btn-info" type="submit">Update Adventure Log</button>
-  </form>
+  </form> -->
   <form id="showAdvBook">
     <button class="btn btn-info" type="submit">Show Adventure Logs</button>
   </form>
   <main>
     <div id="content" class="content"></div>
+    <div class="modal fade" id="editModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="edit-form">
+            <div class="modal-header">
+              <h3 class="modal-title"> Edit Adventure</h3>
+            </div>
+            <div class="modal-body">
+              <label>Title</label>
+              <div class="input-group">
+                <input
+                  id="title"
+                  name="title"
+                  class="form-control"
+                  type="text"
+                  />
+                </div>
+                <label>Edition</label>
+                <div class="input-group">
+                <input
+                id="edition"
+                name="edition"
+                class="form-control"
+                type="number"
+                />
+                <label>Description</label>
+                <div class="input-group">
+                  <textarea
+                  id="text"
+                  name="text"
+                  class="form-control">
+                </textarea>
+              </div>
+              <input id="ownerId" name="ownerId" type="hidden" />
+              <input id="_id" name="_id" type="hidden" />
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
        </div>
     </body>
